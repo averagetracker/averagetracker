@@ -1,0 +1,120 @@
+<html> 
+	<head>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/style.css"
+	</head>
+	
+	<body>
+
+
+
+
+      <nav>
+
+        <a href="/" class="logo"><img src="{{ url_for('static', filename='data/logo.png') }}" alt="logo moyenne calculette" height="50"></a>
+        <ul class="navigation">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="static/informations.html">Informations</a></li>
+          <li><a href="mailto:average.tracker@gmail.com">Contact</a></li>
+        </ul>
+            <div class="toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <script>
+              let menutoggle = document.querySelector('.toggle');
+              let navigation = document.querySelector('.navigation');
+
+              menutoggle.onclick = function(){
+              menutoggle.classList.toggle('active')
+              navigation.classList.toggle('active')
+              }
+            </script>
+      </nav>
+
+
+
+    <div id="container_one">
+      <div id="content_left">
+        <h1>Calculer votre Moyenne</h1>
+        <p>Calculer votre moyenne école directe devient un jeu d'enfant. Connecter vous et obtenez immédiatement votre résultat !</p>
+        <a href="#username">C'est parti !</a>
+      </div>
+      <div id="content_right">
+        <img src="{{ url_for('static', filename='data/picture.png') }}" >
+      </div>
+    </div>
+
+
+
+    <div id="tags">
+      <div id="tags_cells">
+        <div class="tags_content">
+          <img src="{{ url_for('static', filename='data/euro.png') }}"></br>
+          <h2>Gratuit</h2>
+          <p>Le service est totalement gratuit et illimité (ça en fait des fois !)</p>
+        </div>
+        <div class="tags_content">
+          <img src="{{ url_for('static', filename='data/lock.png') }}"></br>
+          <h2>Sécurisé</h2>
+          <p>Le transfert des informations confidentielles sont crypté afin de garantir une sécurité optimale</p>
+        </div>
+        <div class="tags_content">
+          <img src="{{ url_for('static', filename='data/hourglass.png') }}"></br>
+          <h2>Instantané</h2>
+          <p>Pas d'attente. Vous obtenez votre moyenne et autres informations immédiatement</p>
+        </div>
+      </div>
+    </div>
+
+
+
+<div id="connection">
+
+    <div id="text_connection">
+      <h2>Se connecter.</h2>
+      <p>Attention les comptes parents ne sont pas supportés</p>
+    </div>
+
+
+
+          <form class="grid" action="/result" method="POST">
+            <div id="text_zone">
+              <div class="txt_field">
+                <input type="text" id="username" name="username" required>
+                <span></span>
+                <label>Username</label>
+              </div>
+
+              <div class="txt_field">
+                <input type="password" id="password" name="password" required>
+                <span></span>
+                <label>Password</label>
+              </div>
+            </div>
+            <a href="https://www.ecoledirecte.com/recuplogin">Mot de passe oublié</a>
+            <div id="button">
+              <input class="file_submit" type="Submit" value="Connection">
+            </div>
+          </form>
+
+</div>
+
+<footer>
+  <div>
+    <a href="#"><img class="email" src="{{ url_for('static', filename='data/mail.png') }}" alt="email" height="30"></a>
+    <a href="#"><img class="github" src="{{ url_for('static', filename='data/github.png') }}" alt="github" height="30"></a>
+  </div>
+  <p>Copyright © 2021 - Average Tracker</p>
+</footer>
+
+
+
+
+
+
+    </body>
+
+</html>

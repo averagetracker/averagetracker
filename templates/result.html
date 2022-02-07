@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+
+ 
+
+      <nav>
+
+        <a href="/" class="logo"><img src="{{ url_for('static', filename='data/logo.png') }}" alt="logo moyenne calculette" height="50"></a>
+        <ul class="navigation">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="static/informations.html">Informations</a></li>
+          <li><a href="mailto:average.tracker@gmail.com">Contact</a></li>
+        </ul>
+            <div class="toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <script>
+              let menutoggle = document.querySelector('.toggle');
+              let navigation = document.querySelector('.navigation');
+
+              menutoggle.onclick = function(){
+              menutoggle.classList.toggle('active')
+              navigation.classList.toggle('active')
+              }
+            </script>
+      </nav>
+
+
+
+
+
+
+<body>
+	<h1>result</h1>
+
+
+
+{% if username %}
+<h3 style="text-align: center; padding-top: 100px">👋 Bonjour {{name}} !</h3>
+<p>{{codeMatiere}}</p>
+{% endif %}
+
+
+
+
+
+
+<div class="info_result">
+
+{% if moyenne >= 18 %}
+<p>Tout simplement excellent !</p>
+<p><span>🤓</span></p>
+<h3>Ta moyenne : {{moyenne}}/20</h3>
+{% endif %}
+
+
+{% if 15 <= moyenne < 18  %}
+<p>Bravo, continue comme ça !</p>
+<p><span>🤩</span></p>
+<h3>Ta moyenne : {{moyenne}}/20</h3>
+{% endif %}
+
+{% if 12 <= moyenne < 15  %}
+<p> Pas mal du tout !</p>
+<p><span>😏</span></p>
+<h3>Ta moyenne : {{moyenne}}/20</h3>
+{% endif %}
+
+{% if moyenne < 12  %}
+<h3>Ta moyenne : {{moyenne}}/20</h3>
+{% endif %}
+
+
+{% if info_subject_weight != "none" %}
+<p style="padding-top: 15px;"><u>Attention</u>: Certaines matières de cette période n'avaient pas de coefficient. La moyenne générale générée est donc probablement erronée.</p>
+{% endif %}
+
+</div>
+
+
+<footer>
+  <div>
+    <a href="#"><img class="email" src="{{ url_for('static', filename='data/mail.png') }}" alt="email" height="30"></a>
+    <a href="#"><img class="github" src="{{ url_for('static', filename='data/github.png') }}" alt="github" height="30"></a>
+  </div>
+  <p>Copyright © 2021 - Average Tracker</p>
+</footer>
+
+
+
+
+</body>
+</html>
